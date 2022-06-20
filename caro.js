@@ -36,7 +36,10 @@ function check(x, y) {
         }
         document.getElementById("id_" + x + "_" + y).setAttribute("value", x + "," + y + "," + gt);
         click++;
+
         chuoi.push({x, y, gt});
+
+        //chuoi.push({x, y, click});
 
     }
     console.log(chuoi);
@@ -195,6 +198,17 @@ function check_win_x(x, y) {
             }
         }
     }, 200);
+
+}
+
+//back
+var bac = 0;
+function back(){
+    //bo phần tư cuôi mảng
+    chuoi.pop();
+    bac++;
+    console.log(chuoi);
+    console.log(click - bac);
 
 
 }

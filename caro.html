@@ -1,3 +1,9 @@
+<?php <?php
+    require './caro.php';
+    $caro = getAll();
+    disconnect_db();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +13,12 @@
     <link rel="stylesheet" href="caro.css">
 </head>
 <body>
+
 <div class="body">
 
     <!-- title -->
     <div class="container title">
+        <?php     echo('1234'); ?>
         <div class="time">
             <p>
                 <span id="seconds">00</span>:<span id="tens">00</span>
@@ -22,7 +30,7 @@
 
     <!--main-->
     <div class="container main">
-<!--        <div class="cell" id="idij" value="ijgt" onclick="check(i,j)" ></div>-->
+        
     </div>
 
 </div>
