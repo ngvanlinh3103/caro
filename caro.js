@@ -24,7 +24,6 @@ function check_preson(click) {
 var chuoi = [];
 
 function check(x, y) {
-
     if (document.getElementById("id_" + x + "_" + y).innerText == '') {
         gt = check_preson(click);
         if (gt == 1) {
@@ -202,13 +201,23 @@ function check_win_x(x, y) {
 }
 
 //back
-var bac = 0;
-function back(){
-    //bo phần tư cuôi mảng
-    chuoi.pop();
-    bac++;
-    console.log(chuoi);
-    console.log(click - bac);
+var last = [];
 
+function back() {
+    last = chuoi[chuoi.length - 1];
+    console.log(last);
+    if (document.getElementById("id_" + last.x + "_" + last.y).innerText != '') {
+        document.getElementById("id_" + last.x + "_" + last.y).innerText = "";
+        document.getElementById("id_" + last.x + "_" + last.y).setAttribute("value", last.x + "," + last.y + ",0");
+        click--;
+        chuoi.pop();
+    }
 
 }
+
+//save
+function save(){
+    
+}
+
+//load
