@@ -1,4 +1,4 @@
-var main_game = document.getElementsByClassNagitme('main');
+var main_game = document.getElementsByClassName('main');
 var html_main = "";
 var n = 50;
 var click = 0;
@@ -205,7 +205,7 @@ var last = [];
 
 function back() {
     last = chuoi[chuoi.length - 1];
-    console.log(last);
+    //console.log(last);
     if (document.getElementById("id_" + last.x + "_" + last.y).innerText != '') {
         document.getElementById("id_" + last.x + "_" + last.y).innerText = "";
         document.getElementById("id_" + last.x + "_" + last.y).setAttribute("value", last.x + "," + last.y + ",0");
@@ -216,8 +216,37 @@ function back() {
 }
 
 //save
-function save(){
-    
-}
+$('#save').click(function (){
+    $.ajax({
+        url: 'caroDB.php',
+        type: 'post',
+        dataType: 'json',
+        data: {
+            'x': chuoi
+        },
+        success: function (result){
+
+        }
+    });
+});
 
 //load
+$('#load').click(function (){
+    $.ajax({
+        url: 'caroDB.php',
+        type: 'post',
+        dataType: 'xml',
+        success: function (result){
+            var html = '';
+            for (let i = 1; i <= n; i++) {
+                for (let j = 1; j <= n; j++) {
+                    html += '<div class="cell" id="id_' + i + '_' + j + '" value="' + i + ',' + j + ',0" onclick="check(' + i + ',' + j + ')" ></div>';
+                }
+                html += '</br>';
+            }
+            $(result).find('items').each (function (key, val) {
+                document.getElementById("id_" + key.x + "_" + key.y).setAttribute("value", key.x + "," + key.y + ","+key.gt);
+            });
+        }
+    });
+});
