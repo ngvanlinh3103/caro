@@ -36,7 +36,7 @@ function add($stt, $mang){
     global $conn;
 
     connect_db();
-    $sql = "insert into caro( stt, mang) values (' $stt ',' $mang ')";
+    $sql = "insert into caro( stt, vi_tri) values (' $stt ',' $mang ')";
     $query = mysqli_query( $conn, $sql);
     return $query;
 }

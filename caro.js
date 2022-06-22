@@ -1,4 +1,4 @@
-var main_game = document.getElementsByClassName('main');
+var main_game = document.getElementsByClassNagitme('main');
 var html_main = "";
 var n = 50;
 var click = 0;
@@ -24,7 +24,6 @@ function check_preson(click) {
 var chuoi = [];
 
 function check(x, y) {
-
     if (document.getElementById("id_" + x + "_" + y).innerText == '') {
         gt = check_preson(click);
         if (gt == 1) {
@@ -36,7 +35,10 @@ function check(x, y) {
         }
         document.getElementById("id_" + x + "_" + y).setAttribute("value", x + "," + y + "," + gt);
         click++;
+
         chuoi.push({x, y, gt});
+
+        //chuoi.push({x, y, click});
 
     }
     console.log(chuoi);
@@ -196,5 +198,26 @@ function check_win_x(x, y) {
         }
     }, 200);
 
+}
+
+//back
+var last = [];
+
+function back() {
+    last = chuoi[chuoi.length - 1];
+    console.log(last);
+    if (document.getElementById("id_" + last.x + "_" + last.y).innerText != '') {
+        document.getElementById("id_" + last.x + "_" + last.y).innerText = "";
+        document.getElementById("id_" + last.x + "_" + last.y).setAttribute("value", last.x + "," + last.y + ",0");
+        click--;
+        chuoi.pop();
+    }
 
 }
+
+//save
+function save(){
+    
+}
+
+//load
