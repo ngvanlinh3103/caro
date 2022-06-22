@@ -1,51 +1,37 @@
-<?php
-global $conn;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Caro</title>
 
-function connect_db(){
-    global $conn;
+    <link rel="stylesheet" href="caro.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
 
-    if (!$conn) {
-        $conn = new mysqli('localhost', 'root', '', 'caro') or die("can't connect db");
-        mysqli_set_charset($conn, 'utf8');
-    }
-}
+<div class="body">
 
-function disconnect_db(){
-    global $conn;
+    <!-- title -->
+    <div class="container title">
+        <div class="time">
+            <p>
+                <span id="seconds">00</span>:<span id="tens">00</span>
+            </p>
+            <button value="back" class="back" onclick="back()">back</button>
+        </div>
+        <h1 class="title-game">game for fun</h1>
+        <button id="save" class="save" >save</button>
+        <button id="load" class="load">load</button>
+        <div id="showerror"></div>
+    </div>
 
-    if ($conn) {
-        mysqli_close($conn);
-    }
-}
+    <!--main-->
+    <div class="container main">
 
-function getAll(){
-    global $conn;
+    </div>
 
-    $resuilt = array();
-    $sql = "select * from caro";
-    $query = mysqli_query($conn, $sql);
-    if ($query) {
-        while ($row = mysqli_fetch_assoc($query)) {
-            $resuilt[] = $row;
-        }
-    }
-    return json_encode($resuilt);
-}
+</div>
 
-function add($stt, $mang){
-    global $conn;
-
-    connect_db();
-    $sql = "insert into caro( stt, vi_tri) values (' $stt ',' $mang ')";
-    $query = mysqli_query( $conn, $sql);
-    return $query;
-}
-
-function back($stt){
-    global $conn;
-
-    connect_db();
-    $sql = "delete from caro where stt = $stt";
-    $query = mysqli_query( $conn, $sql);
-    return $query;
-}
+<script type="text/javascript" src="caro.js"></script>
+</body>
+</html>

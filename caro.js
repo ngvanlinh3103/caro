@@ -205,7 +205,7 @@ var last = [];
 
 function back() {
     last = chuoi[chuoi.length - 1];
-    console.log(last);
+    //console.log(last);
     if (document.getElementById("id_" + last.x + "_" + last.y).innerText != '') {
         document.getElementById("id_" + last.x + "_" + last.y).innerText = "";
         document.getElementById("id_" + last.x + "_" + last.y).setAttribute("value", last.x + "," + last.y + ",0");
@@ -216,8 +216,31 @@ function back() {
 }
 
 //save
-function save(){
-    
-}
+$('#save').click(function (){
+    $.ajax({
+        url: 'caroDB.php',
+        type: 'post',
+        dataType: 'json',
+        data: {
+            'x': chuoi
+        },
+        success: function (result){
+
+        }
+    });
+});
 
 //load
+$('#load').click(function (){
+    $.ajax({
+        url: 'caroDB.php',
+        type: 'post',
+        dataType: 'json',
+        data: {
+            'x': chuoi
+        },
+        success: function (result){
+
+        }
+    });
+});
