@@ -34,24 +34,56 @@ body {
     font-weight: 300;
     font-size: 25px;
     letter-spacing: 3px;
-    display:inline-flex;
+    display: inline-flex;
 }
 
-.txt_save{
+.div_save {
+    width: 16rem;
+    height: 6rem;
+}
+
+.txt_save {
     letter-spacing: 1px;
     font-weight: 300;
     border-radius: 15px;
-    height:1.5rem;
+    height: 1.5rem;
     border: 2px solid white;
     text-align: center;
+    margin-top: 1rem;
+    vertical-align: top;
+}
+
+.save {
+    vertical-align: top;
+    margin-top: -2.7rem;
+
+}
+
+.div_load {
+    width: 16rem;
+    height: 6rem;
+}
+
+.select {
+    letter-spacing: 1px;
+    font-weight: 300;
+    border-radius: 15px;
+    height: 1.75rem;
+    border: 2px solid white;
+    text-align: center;
+    margin-top: 1rem;
+    vertical-align: top;
+    width: 9rem;
+}
+
+.load {
+    vertical-align: top;
+    margin-top: -2.7rem;
+
 }
 
 .time p {
     display: none;
-}
-
-.div_save{
-    display:inline-block;
 }
 
 button {
@@ -60,8 +92,7 @@ button {
     border-radius: 15px;
     background: white;
     width: 6rem;
-//margin-left: 2rem;
-    margin:auto;
+    margin: auto;
     color: #696969;
     letter-spacing: 1px;
     font-weight: 300;
@@ -79,7 +110,7 @@ button:hover {
     font-weight: 300;
     line-height: 6rem;
     letter-spacing: 3px;
-    display:inline-block;
+    display: inline-block;
 }
 
 .main {

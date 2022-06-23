@@ -32,16 +32,20 @@ function get($stt){
     }
     return $result;
 }
+
+//$chon = isset($_POST['stt']) ? $_POST['stt']:'';
+$g = $_POST['chon'];
+var_dump($g);die();
 $load = get(1);
 
 if($load){
+    //load lấy chuỗi
     foreach ($load as $key){
         $z = ($key);
-
     }
+    //chuyển chuỗi thành mảng
     $d = json_decode($z);
 
-//    var_dump($d[26]->x);die();
     $result = array();
     foreach ($d as $item){
        $result[] = array(

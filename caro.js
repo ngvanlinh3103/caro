@@ -219,8 +219,12 @@ function back() {
 $('#save').click(function () {
     $('#txt_save').html('');
     let name = $('#txt_save').val();
-    if ($.trim(name) == ''){
+    if ($.trim(name) == '') {
         alert('Ban chua nhap ten!');
+        return false;
+    }
+    if (chuoi.length == 0) {
+        alert('Chua co phan tu!');
         return false;
     }
 
@@ -238,13 +242,30 @@ $('#save').click(function () {
     });
 });
 
+//select
+$('#tim').click(function () {
+    $.ajax({
+        url: 'select.php',
+        type: 'post',
+        dataType: 'text',
+        success: function (result) {
+            //console.log(result);
+            $('#select').html(result);
+        },
+    });
+});
+
+
 //load
 $('#load').click(function () {
-
+    var chon = $(':checked').val();
     $.ajax({
         url: 'load.php',
         type: 'get',
         dataType: 'json',
+        data: {
+            stt: chon
+        },
         success: function (result) {
             //console.log(result);
 
@@ -265,3 +286,4 @@ $('#load').click(function () {
         }
     });
 });
+

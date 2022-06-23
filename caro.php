@@ -23,7 +23,14 @@
                     <input type="text" id="txt_save" class="txt_save">
                     <button id="save" class="save" >save</button>
                 </div>
-                <button id="load" class="load">load</button>
+                <div class="div_load">
+                    <select class="select" id="select">
+
+                    </select>
+
+                    <button id="load" class="load">load</button>
+                </div>
+                <button id="tim">tên</button>
             </div>
             <h1 class="title-game">game for fun</h1>
             <div id="showerror"></div>
