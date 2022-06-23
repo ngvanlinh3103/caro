@@ -18,32 +18,41 @@ function disconnect_db(){
     }
 }
 
-function get($stt){
-    global $conn;
-    $result = array();
-
-    connect_db();
-    $sql = "SELECT `vi_tri` FROM `caro` WHERE stt = '.$stt.';";
-    $query = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($query) > 0){
-        $row = mysqli_fetch_assoc($query);
-        $result = $row;
-    }
-    return $result;
-}
-
-function save($chuoi){
+function save($name,$chuoi){
     global $conn;
 
     connect_db();
-    $sql = "insert into caro(vi_tri) values ('" . $chuoi . "')";
+    $sql = "insert into caro(name,vi_tri) values ('".$name."','" . $chuoi . "')";
     $query=mysqli_query($conn, $sql);
     return $query;
 }
 
+$name = isset($_POST['name']) ? $_POST['name']:'';
+
+//loi neu ko co name
+/*if (!$name){
+    die('{error:"loi roi"}');
+}
+
+$error = array(
+    'error'=> 'success',
+    'name'=>''
+);
+
+if ($name){
+    connect_db();
+    $mysql = 'select count(*) as count from caro where name ="'.addslashes($name).'"';
+    $query = mysqli_query($conn,$mysql);
+    if ($query){
+        $row = mysqli_fetch_array($query,MYSQLI_ASSOC);
+        if ((int)$row['count'] > 0){
+            $error['name'] = 'ten nay da ton tai';
+        }
+    }
+    else
+        die('{error:"loi roi"}');
+}*/
+
 $x = $_POST['x'];
 $y = json_encode($x);
-save($y);
-
-
-
+save($name, $y);

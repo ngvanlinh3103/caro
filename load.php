@@ -32,7 +32,7 @@ function get($stt){
     }
     return $result;
 }
-$load = get(16);
+$load = get(1);
 
 if($load){
     foreach ($load as $key){

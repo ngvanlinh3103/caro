@@ -9,28 +9,32 @@
 </head>
 <body>
 
-<div class="body">
+    <div class="body">
 
-    <!-- title -->
-    <div class="container title">
-        <div class="time">
-            <p>
-                <span id="seconds">00</span>:<span id="tens">00</span>
-            </p>
-            <button value="back" class="back" onclick="back()">back</button>
+        <!-- title -->
+        <div class="container title">
+            <div class="time">
+                <p>
+                    <span id="seconds">00</span>:<span id="tens">00</span>
+                </p>
+
+                <button value="back" class="back" onclick="back()">back</button>
+                <div class="div_save">
+                    <input type="text" id="txt_save" class="txt_save">
+                    <button id="save" class="save" >save</button>
+                </div>
+                <button id="load" class="load">load</button>
+            </div>
+            <h1 class="title-game">game for fun</h1>
+            <div id="showerror"></div>
         </div>
-        <h1 class="title-game">game for fun</h1>
-        <button id="save" class="save" >save</button>
-        <button id="load" class="load">load</button>
-        <div id="showerror"></div>
+
+        <!--main-->
+        <div class="container main">
+
+        </div>
     </div>
 
-    <!--main-->
-    <div class="container main">
-
-    </div>
-</div>
-
-<script type="text/javascript" src="caro.js"></script>
+    <script type="text/javascript" src="caro.js"></script>
 </body>
 </html>

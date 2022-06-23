@@ -41,7 +41,7 @@ function check(x, y) {
         //chuoi.push({x, y, click});
 
     }
-    console.log(chuoi);
+    //console.log(chuoi);
     check_win_x(x, y);
 }
 
@@ -217,12 +217,20 @@ function back() {
 
 //save
 $('#save').click(function () {
+    $('#txt_save').html('');
+    let name = $('#txt_save').val();
+    if ($.trim(name) == ''){
+        alert('Ban chua nhap ten!');
+        return false;
+    }
+
     $.ajax({
-        url: 'caroDB.php',
+        url: 'save.php',
         type: 'post',
         dataType: 'json',
         data: {
-            'x': chuoi
+            name: $('#txt_save').val(),
+            x: chuoi
         },
         success: function (result) {
 
@@ -232,20 +240,21 @@ $('#save').click(function () {
 
 //load
 $('#load').click(function () {
+
     $.ajax({
         url: 'load.php',
         type: 'get',
         dataType: 'json',
         success: function (result) {
             //console.log(result);
+
             for (let i = 0; i < result.length; i++) {
                 document.getElementById("id_" + result[i].x + "_" + result[i].y).setAttribute("value", result[i].x + "," + result[i].y + "," + result[i].z);
                 //console.log(result[i].x+' '+result[i].y+' '+result[i].z);
                 if (result[i].z == 1) {
                     document.getElementById("id_" + result[i].x + "_" + result[i].y).innerText = 'x';
                     document.getElementById("id_" + result[i].x + "_" + result[i].y).classList.add('cell1');
-                }
-                else if (result[i].z == 2) {
+                } else if (result[i].z == 2) {
                     document.getElementById("id_" + result[i].x + "_" + result[i].y).innerText = 'o';
                     document.getElementById("id_" + result[i].x + "_" + result[i].y).classList.add('cell2');
                 }
