@@ -261,7 +261,7 @@ $('#load').click(function () {
     var chon = $(':checked').val();
     $.ajax({
         url: 'load.php',
-        type: 'get',
+        type: 'post',
         dataType: 'json',
         data: {
             stt: chon

@@ -13,6 +13,25 @@ body {
     width: 850px;
 }
 
+button {
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 15px;
+    background: white;
+    width: 6rem;
+    margin: auto;
+    color: #696969;
+    letter-spacing: 1px;
+    font-weight: 300;
+    text-transform: capitalize;
+    height: 2.3rem;
+}
+
+button:hover {
+    background: #696969;
+    color: #fff;
+}
+
 .container {
 
 }
@@ -82,28 +101,16 @@ body {
 
 }
 
+#tim {
+    vertical-align: top;
+    margin-top: -2.7rem;
+    padding: 4px;
+}
+
 .time p {
     display: none;
 }
 
-button {
-    padding: 10px;
-    border: 2px solid white;
-    border-radius: 15px;
-    background: white;
-    width: 6rem;
-    margin: auto;
-    color: #696969;
-    letter-spacing: 1px;
-    font-weight: 300;
-    text-transform: capitalize;
-    height: 2.3rem;
-}
-
-button:hover {
-    background: #696969;
-    color: #fff;
-}
 
 .title .title-game {
     text-transform: uppercase;

@@ -33,10 +33,9 @@ function get($stt){
     return $result;
 }
 
-//$chon = isset($_POST['stt']) ? $_POST['stt']:'';
-$g = $_POST['chon'];
-var_dump($g);die();
-$load = get(1);
+$chon = isset($_POST['stt']) ? $_POST['stt']:'';
+
+$load = get($chon);
 
 if($load){
     //load lấy chuỗi

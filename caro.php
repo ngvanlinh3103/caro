@@ -27,10 +27,10 @@
                     <select class="select" id="select">
 
                     </select>
-
+                    <button id="tim">tìm bản ghi</button>
                     <button id="load" class="load">load</button>
                 </div>
-                <button id="tim">tên</button>
+
             </div>
             <h1 class="title-game">game for fun</h1>
             <div id="showerror"></div>
