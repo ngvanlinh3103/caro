@@ -242,14 +242,15 @@ $('#save').click(function () {
     });
 });
 
-//select
-$('#tim').click(function () {
+//select tìm tên bản ghi
+$('#select').dblclick(function () {
     $.ajax({
         url: 'select.php',
         type: 'post',
         dataType: 'text',
         success: function (result) {
             //console.log(result);
+
             $('#select').html(result);
         },
     });
@@ -259,6 +260,15 @@ $('#tim').click(function () {
 //load
 $('#load').click(function () {
     var chon = $(':checked').val();
+    var chuoiht = chuoi;
+
+    //làm trống khi load
+    for (let i = 0; i < chuoiht.length; i++) {
+            document.getElementById("id_" + chuoi[i].x + "_" + chuoi[i].y).innerText = "";
+            document.getElementById("id_" + chuoi[i].x + "_" + chuoi[i].y).setAttribute("value", chuoi[i].x + "," + chuoi[i].y + ",0");
+    }
+
+    //ajax json
     $.ajax({
         url: 'load.php',
         type: 'post',
