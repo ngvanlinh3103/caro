@@ -216,7 +216,7 @@ function back() {
 }
 
 //save
-$('#save').click(function (){
+$('#save').click(function () {
     $.ajax({
         url: 'caroDB.php',
         type: 'post',
@@ -224,29 +224,35 @@ $('#save').click(function (){
         data: {
             'x': chuoi
         },
-        success: function (result){
+        success: function (result) {
 
         }
     });
 });
 
 //load
-$('#load').click(function (){
+$('#load').click(function () {
     $.ajax({
-        url: 'caroDB.php',
-        type: 'post',
-        dataType: 'xml',
-        success: function (result){
-            var html = '';
-            for (let i = 1; i <= n; i++) {
-                for (let j = 1; j <= n; j++) {
-                    html += '<div class="cell" id="id_' + i + '_' + j + '" value="' + i + ',' + j + ',0" onclick="check(' + i + ',' + j + ')" ></div>';
+        url: 'load.php',
+        type: 'get',
+        dataType: 'json',
+        success: function (result) {
+            //console.log(result);
+            for (let i = 0; i < result.length; i++) {
+                document.getElementById("id_" + result[i].x + "_" + result[i].y).setAttribute("value", result[i].x + "," + result[i].y + "," + result[i].z);
+                //console.log(result[i].x+' '+result[i].y+' '+result[i].z);
+                if (result[i].z == 1) {
+                    document.getElementById("id_" + result[i].x + "_" + result[i].y).innerText = 'x';
+                    document.getElementById("id_" + result[i].x + "_" + result[i].y).classList.add('cell1');
                 }
-                html += '</br>';
+                else if (result[i].z == 2) {
+                    document.getElementById("id_" + result[i].x + "_" + result[i].y).innerText = 'o';
+                    document.getElementById("id_" + result[i].x + "_" + result[i].y).classList.add('cell2');
+                }
             }
-            $(result).find('items').each (function (key, val) {
-                document.getElementById("id_" + key.x + "_" + key.y).setAttribute("value", key.x + "," + key.y + ","+key.gt);
-            });
+        },
+        error: function (msg) {
+            console.log(msg);
         }
     });
 });

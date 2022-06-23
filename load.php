@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 global $conn;
 
 function connect_db(){
@@ -23,7 +24,7 @@ function get($stt){
     $result = array();
 
     connect_db();
-    $sql = "SELECT `vi_tri` FROM `caro` WHERE stt = '.$stt.';";
+    $sql = "SELECT vi_tri FROM caro WHERE stt = {$stt};";
     $query = mysqli_query($conn, $sql);
     if (mysqli_num_rows($query) > 0){
         $row = mysqli_fetch_assoc($query);
@@ -31,16 +32,24 @@ function get($stt){
     }
     return $result;
 }
+$load = get(16);
 
-function save($chuoi){
-    global $conn;
+if($load){
+    foreach ($load as $key){
+        $z = ($key);
 
-    connect_db();
-    $sql = "insert into caro(vi_tri) values ('" . $chuoi . "')";
-    $query=mysqli_query($conn, $sql);
-    return $query;
+    }
+    $d = json_decode($z);
+
+//    var_dump($d[26]->x);die();
+    $result = array();
+    foreach ($d as $item){
+       $result[] = array(
+           'x' => $item->x,
+           'y' => $item->y,
+           'z' => $item->gt
+       );
+    }
+
+    echo json_encode($result);
 }
-
-$x = $_POST['x'];
-$y = json_encode($x);
-save($y);
